@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Add Post Page</title>
+</head>
+
+<body ng-controller="HomeCtrl">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Coway</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Promotion</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Neo Promotion</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Water Purifier</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Air Purifier</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+		  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+		  <div class="carousel-item active">
+			<img class="d-block w-100" src="..." alt="First slide">
+		  </div>
+		  <div class="carousel-item">
+			<img class="d-block w-100" src="..." alt="Second slide">
+		  </div>
+		  <div class="carousel-item">
+			<img class="d-block w-100" src="..." alt="Third slide">
+		  </div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+		  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Next</span>
+		</a>
+	  </div>
+
+	
+
+	<div class="container contact-form">
+
+		<form role="form" name="orderForm" ng-submit="createOrder()" novalidate="">
+			<h3>Order Form</h3>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group" ng-class="{'has-error' : orderForm.nameTxt.$invalid && !orderForm.nameTxt.$touched}">
+						<input type="text" name="nameTxt" ng-model="orders.nameTxt" class="form-control" placeholder="Your Name *" ng-minlength= "5" value="" />
+						<small class="help-block" ng-show="orderForm.titleTxt.$error.minlength && orderForm.titleTxt.$touched">Please enter a valid name.</small>
+					</div>
+					<div class="form-group"ng-class="{'has-error' : orderForm.emailTxt.$invalid && !orderForm.emailTxt.$touched}">
+						<input type="email" name="emailTxt" ng-model="orders.emailTxt" class="form-control" placeholder="Your Email *" ng-minlenth ="8"
+						 value="" />
+						 <small class="help-block" ng-show="orderForm.titleTxt.$error.minlength && orderForm.titleTxt.$touched">Please enter a valid email.</small>
+					</div>
+					<div class="form-group" ng-class="{'has-error' : orderForm.phoneNoTxt.$invalid && !orderForm.phoneNoTxt.$touched}">
+						<input type="number" name="phoneNoTxt" ng-model="orders.phoneNoTxt" class="form-control" placeholder="Your Phone Number *" ng-minlength ="10"
+						 value="" />
+						 <small class="help-block" ng-show="orderForm.titleTxt.$error.minlength && orderForm.phoneNoTxt.$touched">Please enter a valid phone number.</small>
+					</div>
+					<div class="form-group" ng-class="{'has-error' : orderForm.productCodeTxt.$invalid && !orderForm.productCodeTxt.$touched}">
+						<input type="text" name="productCodeTxt" ng-model="orders.productCodeTxt" class="form-control" placeholder="I'm Interested in Coway (Product number) *"
+						 value="" />
+					</div>
+					<div class="form-group" ng-class="{'has-error' : orderForm.addressTxt.$invalid && !orderForm.addressTxt.$touched}">
+						<input type="text" name="addressTxt" ng-model="orders.addressTxt" class="form-control" placeholder="Your Address *" ng-minlength="10"
+						 value="" />
+						 <small class="help-block" ng-show="orderForm.addressTxt.$error.minlength && orderForm.addressTxt.$touched">Please enter a valid address.</small>
+					</div>
+					<div class="form-group" ng-class="{'has-error' : orderForm.messageTxt.$invalid && !orderForm.messageTxt.$touched}">
+						<input type="text" name="messageTxt" ng-model="orders.messageTxt" class="form-control" value="Your Message" placeholder="Your Message *" ng-minlength ="5"/>
+					</div>
+					<small class="help-block" ng-show="orderForm.messageTxt.$error.minlength && orderForm.messageTxt.$touched">Please enter a valid message.</small>
+					<div class="form-group">
+						<button type="submit" ng-click="reset()" class="btn btn-primary" ng-disabled="orderForm.$invalid">Submit</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="container" ng-show="success">
+		<div class="row">
+			<div class="alert alert-success">
+				<strong>Success!</strong> The post has beed added.
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
